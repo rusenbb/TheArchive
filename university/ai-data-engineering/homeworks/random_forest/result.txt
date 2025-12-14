@@ -1,0 +1,23 @@
+...Reading Airline Passenger Satisfaction Dataset...
+...Fit your forest (all your decision trees)...
+...Make Prediction...
+[[39114.  2917.]
+ [ 5911. 55962.]]
+accuracy: 0.9150
+recall: 0.8687
+precision: 0.9306
+f1_score: 0.8986
+
+result: I ran this program multiple times and scores tendt to be between 0.85-0.95.
+It has a high presicion rate. Meaning that if algorithm predicts that
+a label is 1 it probably is. Recall rate is a bit lower though, meaning that it is missing some
+true labels. Overall, f1_score and accuracy rates are good. So I guess this 
+program is good to use on this data set. Though again one might 
+be able to find better results using different algorithms, 
+for now random forest performed good on this dataset.
+Note: I could increase scores further by increasing max_depth parameter of desicion trees
+on random_forest.py file. currently it is 10 (a high number, if it is taking too low set around 4)
+Also it is not actually a good idea to use high depth as it will overfit (we did not test
+wheter it overfits in this hw, we did not split test-set, training-set)
+
+Muhammed Rüşen Birben - 150220755

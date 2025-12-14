@@ -1,0 +1,6 @@
+==========MENU==========
+1--> Start a New game
+2--> Load a saved game
+3--> Save the current game
+4--> Return to the game
+5--> Exit the game
