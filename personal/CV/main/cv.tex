@@ -1,0 +1,291 @@
+%-------------------------
+% CV in LaTeX
+% Author: Muhammed Rusen Birben
+%-------------------------
+
+\documentclass[11pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[top=0.4in, bottom=0.4in, left=0.45in, right=0.45in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{fontawesome5}
+\usepackage{paracol}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\usepackage{setspace}
+\usepackage{needspace}
+\usepackage{eso-pic}
+
+% Blue border stripes on all sides
+\AddToShipoutPictureBG{%
+    \begin{tikzpicture}[remember picture, overlay]
+        % Left stripe
+        \fill[primarycolor] (current page.north west) rectangle ([xshift=8pt]current page.south west);
+        % Right stripe
+        \fill[primarycolor] (current page.north east) rectangle ([xshift=-8pt]current page.south east);
+        % Top stripe
+        \fill[primarycolor] (current page.north west) rectangle ([yshift=-8pt]current page.north east);
+        % Bottom stripe
+        \fill[primarycolor] (current page.south west) rectangle ([yshift=8pt]current page.south east);
+    \end{tikzpicture}%
+}
+
+% Line spacing
+\setstretch{1.05}
+
+% Left align all text (no justification)
+\raggedright
+
+% Colors (matching FlowCV style)
+\definecolor{primarycolor}{RGB}{55, 105, 135}
+\definecolor{sectionbg}{RGB}{235, 245, 250}
+\definecolor{darktext}{RGB}{40, 40, 40}
+\definecolor{lighttext}{RGB}{100, 100, 100}
+
+% Hyperlink setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=primarycolor,
+    urlcolor=primarycolor,
+    pdftitle={CV - Muhammed Rusen Birben}
+}
+
+% tcolorbox settings
+\tcbset{
+    colback=sectionbg,
+    colframe=sectionbg,
+    boxrule=0pt,
+    arc=3pt,
+    left=6pt,
+    right=6pt,
+    top=3pt,
+    bottom=3pt,
+}
+
+% Section with colored box (with needspace to prevent splitting)
+\newcommand{\sectionbox}[2]{%
+    \needspace{5\baselineskip}%
+    \begin{tcolorbox}
+        {\normalsize\bfseries\color{primarycolor}#1\ #2}
+    \end{tcolorbox}
+    \vspace{1pt}
+}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Disable default section formatting
+\titleformat{\section}{\relax}{}{}{}
+\titlespacing{\section}{0pt}{0pt}{0pt}
+
+% Custom commands for entries
+\newcommand{\eduentry}[4]{%
+    \noindent\textbf{#1} \hfill {\small #2} \\
+    \textit{\color{lighttext}#3} \hfill {\small #4} \\[1pt]
+}
+
+\newcommand{\expentry}[4]{%
+    \noindent\textbf{#1} \\
+    \textit{\color{primarycolor}\href{#4}{#2}} \hfill {\small #3} \\[1pt]
+}
+
+\newcommand{\projectentry}[4]{%
+    \noindent\textbf{\href{#4}{#1}} \\
+    \textit{\color{lighttext}#2} \\[1pt]
+}
+
+\begin{document}
+
+%-------------------------
+% Header
+%-------------------------
+\noindent
+\begin{minipage}[c]{0.16\textwidth}
+    \begin{tikzpicture}
+        \clip (0,0) circle (1.3cm);
+        \node at (0,0) {\includegraphics[width=2.6cm]{../assets/profile-photo.png}};
+    \end{tikzpicture}
+\end{minipage}
+\hspace{8pt}
+\begin{minipage}[c]{0.80\textwidth}
+    {\LARGE\bfseries\color{primarycolor} Muhammed Ru\c{s}en Birben}
+
+    \vspace{6pt}
+
+    {\small\color{darktext}
+    \begin{tabular}{@{}l@{\hspace{12pt}}l@{\hspace{12pt}}l@{}}
+        \faEnvelope\ \href{mailto:rusenbirben@gmail.com}{rusenbirben@gmail.com} &
+        \faPhone\ +90 505 314 0400 &
+        \faMapMarker*\ Ankara, T\"urkiye \\[3pt]
+        \faBirthdayCake\ 26/08/2002 &
+        \faCar\ B &
+        \faGithub\ \href{https://github.com/rusenbb}{rusenbb} \quad
+        \faLinkedin\ \href{https://www.linkedin.com/in/rusenbirben/}{Ru\c{s}en Birben}
+    \end{tabular}
+    }
+\end{minipage}
+
+\vspace{6pt}
+
+%-------------------------
+% Education
+%-------------------------
+\sectionbox{\faGraduationCap}{Education}
+
+\eduentry{Bachelor's Degree in AI and Data Engineering}{09/2022 -- 07/2025}{Istanbul Technical University -- GPA: 3.61}{\.{I}stanbul, T\"urkiye}
+
+\vspace{2pt}
+
+\eduentry{Bachelor's Degree in Electronics and Communication Engineering}{09/2020 -- 08/2022}{Istanbul Technical University -- Transferred to AI \& Data Engineering in 2022}{Istanbul, Turkey}
+
+\vspace{6pt}
+
+%-------------------------
+% Two Column Layout
+%-------------------------
+\setlength{\columnsep}{12pt}
+\begin{paracol}{2}
+
+%-------------------------
+% Professional Experience
+%-------------------------
+\sectionbox{\faBriefcase}{Professional Experience}
+
+\begin{minipage}[t]{\linewidth}
+\expentry{Co-founder \& AI Engineer}{Fiction Studios Teknoloji}{07/2025 -- Present | Istanbul}{https://fictionstudios.ai}
+{\small Building Demis, a real-time voice translation platform powered by LLMs. Developing AI systems for cross-platform (mobile, web, desktop) seamless communication with cultural context preservation.}
+\end{minipage}
+
+\vspace{5pt}
+
+\begin{minipage}[t]{\linewidth}
+\expentry{Junior AI Engineer}{CyberQuote}{03/2025 -- 07/2025 | Istanbul}{https://cyberquote.com}
+{\small Worked as an artificial intelligence engineer at CyberQuote, which is a wholly owned subsidiary of Phillip Capital. My work covers automations where LLMs are a part and agentic use of LLMs inside the company and in their websites.}
+\end{minipage}
+
+\vspace{5pt}
+
+\begin{minipage}[t]{\linewidth}
+\expentry{AIOps Research Intern}{Havelsan}{08/2024 -- 09/2024 | Istanbul}{https://havelsan.com.tr}
+{\small Conducted researches for an AIOps project that uses software log data for predictive maintenance, then use the found insights to generate a demo on HDFS logs.}
+\end{minipage}
+
+\vspace{5pt}
+
+\begin{minipage}[t]{\linewidth}
+\expentry{NLP Research Intern}{ITU NLP Lab.}{07/2024 -- 08/2024 | Istanbul}{https://nlp.itu.edu.tr}
+{\small Conducted researches on utilizing LLMs for financial applications. Researches covered: Financial forecasting, sentiment analysis, tool using, financial reasoning, applications of RAG on financial LLMs.}
+\end{minipage}
+
+\vspace{6pt}
+
+%-------------------------
+% Courses
+%-------------------------
+\sectionbox{\faCertificate}{Courses}
+
+\noindent{\small\textbf{\href{https://coursera.org/share/9c59e9758d378fb8a8b4ab7074dd71ed}{Deep Learning Specialization}}} \\
+{\footnotesize\color{lighttext}Deeplearning.ai -- Andrew Ng} \\
+{\footnotesize Sequence Models, CNNs, NN and DL basics, Structuring ML Projects, Improving Deep NNs.}
+
+\vspace{2pt}
+
+\noindent{\small\textbf{\href{https://coursera.org/share/f8ab2981ab0bbdc3fec17c6e88804ff8}{AWS Cloud Technical Essentials}}} \\
+{\footnotesize\color{lighttext}AWS Coursera} \\
+{\footnotesize Core AWS concepts, security practices, EC2, Lambda, ECS, RDS, DynamoDB, S3.}
+
+\vspace{5pt}
+
+%-------------------------
+% Languages
+%-------------------------
+\sectionbox{\faGlobe}{Languages}
+
+{\small \textbf{English} -- Fluent \hspace{20pt} \textbf{Turkish} -- Native}
+
+\vspace{5pt}
+
+%-------------------------
+% Interests
+%-------------------------
+\sectionbox{\faHeart}{Interests}
+
+{\small
+\textbf{Coffee} -- Specialty coffee enthusiast (V60, Aeropress, Moka Pot).
+
+\vspace{1pt}
+
+\textbf{Books} -- Philosophy, economics, finance, and AI/CS topics.
+
+\vspace{1pt}
+
+\textbf{Anime/Manga} -- Avid viewer and reader.
+}
+
+%-------------------------
+% Right Column
+%-------------------------
+\switchcolumn
+
+%-------------------------
+% Projects
+%-------------------------
+\sectionbox{\faCode}{Projects}
+
+\begin{minipage}[t]{\linewidth}
+\projectentry{Demis}{Real-Time Voice Translation | 07/2025 -- Present}{}{https://fictionstudios.ai}
+{\footnotesize LLM-powered translation platform preserving cultural context and emotional tone. Features transcript support, multi-participant management, personalized voice synthesis, and automatic meeting summarization.}
+\end{minipage}
+
+\vspace{4pt}
+
+\begin{minipage}[t]{\linewidth}
+\projectentry{Tobor \textnormal{\scriptsize\href{https://www.youtube.com/watch?v=h-Jxs_y9kNA}{[\faYoutube\ Video]}}}{Amazon Warehouse Robot | 09/2024 -- 01/2025}{}{https://github.com/rusenbb/TheArchive}
+{\footnotesize Developed an autonomous warehouse robot system simulating Amazon's logistics operations, focusing on efficient navigation and obstacle avoidance. Designed and implemented advanced pathfinding, obstacle avoidance, and task scheduling algorithms using Python and robotics simulation frameworks. The robot is able to see its environment and detect human and cargo boxes with a custom trained YOLO model.}
+\end{minipage}
+
+\vspace{4pt}
+
+\begin{minipage}[t]{\linewidth}
+\projectentry{Mobile Feasible Virtual Try On}{Virtual Clothing System | 03/2024 -- 06/2024}{}{https://github.com/rusenbb/TheArchive}
+{\footnotesize Enhanced a virtual try-on system, enabling users to visualize clothing on themselves without physical wear. Focus was on optimizing the model for mobile devices by reducing its memory footprint, making realistic virtual fittings more accessible and efficient.}
+\end{minipage}
+
+\vspace{4pt}
+
+\begin{minipage}[t]{\linewidth}
+\projectentry{AIZheimer}{Machine Un-Learning | 03/2024 -- 06/2024}{}{https://github.com/rusenbb/TheArchive}
+{\footnotesize This project aims to selectively remove specific concepts from Stable Diffusion 2.1 while keeping its other capabilities intact. The goal is to make the AI unable to generate images of particular target concepts while still producing high-quality images of everything else.}
+\end{minipage}
+
+\vspace{4pt}
+
+\begin{minipage}[t]{\linewidth}
+\projectentry{Biting-The-Bytes \textnormal{\scriptsize\href{https://huggingface.co/spaces/rusen/diacritizeTR}{[\faRobot\ Demo]}}}{Transformers For Diacritic Restoration | 03/2024 -- 06/2024}{}{https://github.com/rusenbb/TheArchive}
+{\footnotesize This project aimed to improve Turkish text by automatically adding missing accent marks and special characters, which are crucial for proper pronunciation and meaning. We used T5, an LLM that Google developed, to restore accents and enhance readability for Turkish speakers.}
+\end{minipage}
+
+\vspace{4pt}
+
+\begin{minipage}[t]{\linewidth}
+\projectentry{To-AI-or-Not-to-AI \textnormal{\scriptsize\href{https://huggingface.co/spaces/rusen/gpt_detector}{[\faRobot\ Demo]}}}{GPT-Detector | 03/2023 -- 06/2023}{}{https://github.com/rusenbb/TheArchive}
+{\footnotesize This project develops an ensemble method to detect AI-generated text, particularly content similar to ChatGPT's output. It uses three fine-tuned AI models to analyze and classify text as either AI-generated or human-written. The system addresses concerns about academic integrity and misinformation.}
+\end{minipage}
+
+\vspace{4pt}
+
+\begin{minipage}[t]{\linewidth}
+\projectentry{Anime Recommender}{Recommendation System | 09/2022 -- 02/2023}{}{https://github.com/rusenbb/TheArchive}
+{\footnotesize Created a personalized anime recommendation system by combining two approaches: analyzing similar users' preferences and considering anime characteristics. Using a large dataset of user ratings and anime information, the system learns patterns to suggest shows users might enjoy.}
+\end{minipage}
+
+\end{paracol}
+
+\end{document}
