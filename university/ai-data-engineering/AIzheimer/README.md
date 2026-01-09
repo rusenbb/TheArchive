@@ -75,9 +75,9 @@ you should have training images in the generated_images folder.
 
 ## Contributors
 
-- **Muhammed Ruşen Birben**
-- **Göktürk Batın Dervişoğlu**
-- **Abdulkadir Külçe**
+- **Muhammed Ruşen Birben** ([@rusenbb](https://github.com/rusenbb))
+- **Göktürk Batın Dervişoğlu** ([@littlestronomer](https://github.com/littlestronomer))
+- **Abdulkadir Külçe** ([@Abdulkadirklc](https://github.com/Abdulkadirklc))
 
 We would like to thank our advisor **Behçet Uğur Töreyin** for his guidance and support throughout the project.
 
